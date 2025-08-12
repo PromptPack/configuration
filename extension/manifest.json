@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "PromptPack Extension",
+  "version": "0.0.1",
+  "description": "Local-first prompt pack manager",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "commands": {
+    "toggleSidebar": {
+      "suggested_key": { "default": "Alt+P" },
+      "description": "Toggle Prompt Sidebar"
+    }
+  },
+  "background": {
+    "service_worker": "worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
